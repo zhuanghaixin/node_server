@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h5>你的账户余额是：<span id="amount">100</span></h5>
+<button id="button">付款一元钱</button>
+<script>
+    button.addEventListener('click',(e)=>{
+        let n=amount.innerText;  //string
+        let number=parseInt(n,10);//number
+        let newNumber=number-1;
+        amount.innerText=newNumber;
+
+    })
+</script>
+</body>
+</html>

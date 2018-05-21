@@ -37,13 +37,10 @@ var server = http.createServer(function (request, response) {
     console.log('方方说：查询字符串为\n' + query)
     console.log('方方说：不含查询字符串的路径为\n' + pathNoQuery)
     if (path == '/') {
+        var string = fs.readFileSync('./index.html','utf8');
+        // var string=fs.readFileSync('./db','utf8');
         response.setHeader('Content-Type', 'text/html; charset=utf-8')
-        response.write('<!DOCTYPE html>\n<html>' +
-            '<head><link rel="stylesheet" href="/style1&style2.css">' +
-            '</head><body>' +
-            '<h1>你好</h1>' +
-            '<script src="/main.js"></script>' +
-            '</body></html>')
+        response.write(string);
         response.end()
     }
     else if (path == '/style1&style2.css') {
