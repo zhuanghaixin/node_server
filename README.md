@@ -26,7 +26,7 @@ nodenode server1_4.js 8888
 ## 5.用户付款案例(使用文件系统数据库并用script标签发送请求，然后在服务器端（刷新页面或者修改innerText)
 ```
 nodenode server1_5.js 8888
-``
+```
 ## 6.用户付款案例(使用文件系统数据库并用script标签发送请求，比如说是frank写的前端页面向jack写的后台发送请求) **JSONP**
 ```
 nodenode server1_6.js 8888
