@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h5>你的账户余额是：<span id="amount">&&&amount&&&</span></h5>
+<button id="button">打钱</button>
+<script>
+    // window.xxx=function(result){
+    //     alert('这是frank写的前端代码');
+    //     alert(`我得到的结果是${result}`);
+    //
+    //     if(result==='success'){
+    //         amount.innerText=amount.innerText-1;
+    //     }else{
+    //
+    //     }
+    // }
+    button.addEventListener('click',(e)=>{
+        let script=document.createElement('script');
+        let functionName='zhx'+parseInt(Math.random()*10000,10);
+        window[functionName]=function(result){
+            alert('这是frank写的前端代码');
+            alert(`我得到的结果是${result}`);
+
+            if(result==='success'){
+                amount.innerText=amount.innerText-1;
+            }else{
+
+            }
+
+        }
+        // script.src='http:jack.com:8002/pay';
+         script.src=`/pay?callback=${functionName}`;
+        //传入xxx函数名
+        // script.src='/pay';
+
+        document.body.appendChild(script);
+        script.onload=function (e) {
+            alert('打钱成功');// 先返回响应结果，再返回加载结果
+            // window.location.reload();  //刷新当前页面
+            // amount.innerText=amount.innerText-1;
+            // debugger;
+
+
+            e.currentTarget.remove();  //生成的script标签立即移除
+            delete window[functionName]; //删除生成的函数名functionName
+        }
+        script.onerror=function(){
+            alert('打钱失败')
+        }
+    })
+</script>
+</body>
+</html>
