@@ -35,3 +35,4 @@ nodenode server1_6.js 8888
 ```
 nodenode server1_7.js 8888
 ```
+## 8.AJAX
