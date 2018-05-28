@@ -39,7 +39,36 @@ node server1_7.js 8888
 ```
 node server2.js 8888
 ```
-## 9.只有 协议+端口+域名 一模一样才允许发 AJAX 请求,form表单可以跨源发送请求
+## 9.(同源策略)只有 协议+端口+域名 一模一样才允许发 AJAX 请求,form表单可以跨源发送请求
 ```
 node server3.js 8888
 ```
+## 10.修改hosts文件,127.0.0.1 jack.com和127.0.0.1 frank.com,同时开启两个服务器
+两个网站同时访问jack.com:8002/xxx,即jack的后台
+jack.com:8002 访问 jack.com:8002/xxx
+```
+node server3.js 8001
+node server3.js 8002
+```
+## 11.CORS(跨域资源共享)
+突破同源策略 === 跨域
+
+Cross-Origin Resource Sharing
+C O源 R S
+```
+node server4.js 8001
+node server4.js 8002
+```
+## 12.
+- 客户端的JS发起请求（浏览器上的）
+- 服务端的JS发送响应（Node.js上的）
+JS 可以设置任意请求 header 吗
+>
+第一部分 request.open('get', '/xxx')
+第二部分 request.setHeader('content-type','x-www-form-urlencoded')
+第四部分 request.send('a=1&b=2')
+JS 可以获取任意响应 header 吗？
+>
+第一部分 request.status / request.statusText
+第二部分 request.getResponseHeader() / request.getAllResponseHeaders()
+第四部分 request.responseText
