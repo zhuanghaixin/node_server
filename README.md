@@ -62,13 +62,15 @@ node server4.js 8002
 ## 12.
 - 客户端的JS发起请求（浏览器上的）
 - 服务端的JS发送响应（Node.js上的）
-JS 可以设置任意请求 header 吗
->
+JS 可以设置任意请求 header 吗 可以
+```
 第一部分 request.open('get', '/xxx')
 第二部分 request.setHeader('content-type','x-www-form-urlencoded')
 第四部分 request.send('a=1&b=2')
-JS 可以获取任意响应 header 吗？
->
+```
+JS 可以获取任意响应 header 吗？可以
+```
 第一部分 request.status / request.statusText
 第二部分 request.getResponseHeader() / request.getAllResponseHeaders()
 第四部分 request.responseText
+```
