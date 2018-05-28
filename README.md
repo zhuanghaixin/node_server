@@ -74,3 +74,7 @@ JS 可以获取任意响应 header 吗？可以
 第二部分 request.getResponseHeader() / request.getAllResponseHeaders()
 第四部分 request.responseText
 ```
+## 13.自己封装window.jQuery.ajax
+```
+node server5.js 8888
+```

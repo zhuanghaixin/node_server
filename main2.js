@@ -27,7 +27,7 @@ btn.addEventListener('click',(e)=>{
             }
             console.log(xhr.readyState);
         }}
-    xhr.open('GET','http://www.baidu.com'); //配置request
+    xhr.open('GET','http://jack.com:8002/xxx'); //配置request
     xhr.send();
 
 })
