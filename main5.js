@@ -37,6 +37,7 @@
 //执行成功后，调用两个函数
 function success(responseText){
     console.log(responseText);
+    return '已经处理';
 }
 function fail(request){
     console.log(request);
@@ -49,7 +50,11 @@ btn.addEventListener('click', (e) => {
     $.ajax({
         url:'/xxx',
         type:'get',
-    }).then(success,fail);
+    }).then(success,fail).then((responseText)=>{
+        console.log(responseText)
+    },(request)=>{
+        console.log('error');
+    })
 
     // window.jquery.ajax
     // let obj={
