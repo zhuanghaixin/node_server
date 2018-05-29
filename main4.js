@@ -7,6 +7,8 @@ window.jQuery=function(nodeOrSelector){
 
     }
     return nodes;
+
+
 }
 
 window.jQuery.ajax = function (options) {
@@ -31,6 +33,14 @@ window.jQuery.ajax = function (options) {
     xhr.send(body);
 
 }
+//执行成功后，调用两个函数
+function f1(responseText){
+    console.log(1);
+}
+function f2(responseText){
+    console.log(2);
+}
+
 
 
 btn.addEventListener('click', (e) => {
@@ -38,8 +48,14 @@ btn.addEventListener('click', (e) => {
         'url':'/xxx',
         'method':'post',
         'body':'a=1&b=2',
-        'successFn':(e)=>{console.log(e)},
-        'failFn':(xhr)=>{console.log(2)}
+        'successFn':(e)=>{
+            f1.call(undefined,e);
+            f2.call(undefined,e);
+        },
+        'failFn':(xhr)=>{console.log(xhr.status);
+            console.log(xhr.responseText);
+        }
+
     }
     window.jQuery.ajax(obj);
 })
