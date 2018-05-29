@@ -9,8 +9,12 @@ window.jQuery=function(nodeOrSelector){
     return nodes;
 }
 
-window.jQuery.ajax = function (url, method, body, successFn, failFn) {
-
+window.jQuery.ajax = function (options) {
+    let url=options.url;
+    let method=options.method;
+    let body=options.body;
+    let successFn=options.successFn;
+    let failFn=options.failFn;
     let xhr = new XMLHttpRequest();
     xhr.open(method, url);
     xhr.onreadystatechange = () => {
@@ -30,11 +34,12 @@ window.jQuery.ajax = function (url, method, body, successFn, failFn) {
 
 
 btn.addEventListener('click', (e) => {
-    window.jQuery.ajax(
-        '/xxx',
-        'post',
-        'a=1&b=2',
-        (responseText)=>{ console.log(1)},
-        (xhr)=>{console.log(2)}
-    )
+    let obj={
+        'url':'/xxx',
+        'method':'post',
+        'body':'a=1&b=2',
+        'successFn':(e)=>{console.log(e)},
+        'failFn':(xhr)=>{console.log(2)}
+    }
+    window.jQuery.ajax(obj);
 })
