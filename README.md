@@ -78,3 +78,11 @@ JS 可以获取任意响应 header 吗？可以
 ```
 node server5.js 8888
 ```
+## 14.用jQuery实现ajax
+```
+node server6.js
+```
+## 15.用Promise封装window.jQuery.ajax
+```
+node server7.js 8888
+```

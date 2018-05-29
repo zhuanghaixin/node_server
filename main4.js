@@ -11,20 +11,25 @@ window.jQuery=function(nodeOrSelector){
 
 }
 
-window.jQuery.ajax = function (options) {
-    let url
+window.jQuery.ajax = function ({url,method,body,headers,successFn,failFn}) {
+    //一个函数如何接受两种参数
+    // let url
+    //
+    // if(arguments.length===1) {
+    //     url=options.url;
+    // }else if(arguments.length===2){
+    //     let url=arguments[0];
+    //     options=arguments[1];
+    // }
+    // let method = options.method;
+    // let body = options.body;
+    // let headers = options.headers;
+    // let successFn = options.successFn;
+    // let failFn = options.failFn;
+    //ES6解构
+    // let{url,method,body,headers,successFn,failFn}=options;
 
-    if(arguments.length===1) {
-        url=options.url;
-    }else if(arguments.length===2){
-        let url=arguments[0];
-        options=arguments[1];
-    }
-    let method = options.method;
-    let body = options.body;
-    let headers = options.headers;
-    let successFn = options.successFn;
-    let failFn = options.failFn;
+
     let xhr = new XMLHttpRequest();
     xhr.open(method, url);
     for(let key in headers){
